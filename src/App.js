@@ -14,7 +14,8 @@ class App extends Component {
     this.state = {
       totalTrains: [],
       train: ["E"],
-      trainsTimes: []
+      trainsTimes: [],
+      count: null
     };
   }
   calculateTracks() {
@@ -43,7 +44,8 @@ class App extends Component {
       count = 1;
     }
     let cnt = countArray.sort()[countArray.length - 1];
-    alert(cnt);
+    // alert(cnt);
+    this.setState({ count: cnt });
   }
   setArrivalTime(ind, e) {
     let trainsTimes = this.state.trainsTimes;
@@ -108,18 +110,25 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <div className="total-tracks">
+          <p>
+            <b>
+              <i>Total Tracks : {this.state.count ? this.state.count : ""}</i>
+            </b>
+          </p>
+        </div>
         <Draggable type="train" data="L">
           <div className="carriage">
-            <img src={carriage} alt="img" />
+            <img className="img-train" src={carriage} alt="img" />
           </div>
         </Draggable>
         <Draggable type="train" data="E">
           <div className="locomotive">
-            <img src={locomotive} alt="img" />
+            <img className="img-train" src={locomotive} alt="img" />
           </div>
         </Draggable>
 
-        <h3 className="main-title"> Build Trains Here</h3>
+        <h1 className="main-title"> Build Trains Here</h1>
         <div className="parent-dotted-box">
           <br />
           <div>
@@ -129,7 +138,7 @@ class App extends Component {
                   types={["train"]} // <= allowed drop types
                   onDrop={this.onDropTrain.bind(this, index)}
                 >
-                  <div>
+                  <div className="train-track">
                     {val.map(function(val1, index1) {
                       return val1 === "E" ? (
                         <img src={slocomotive} alt="img" />
@@ -138,14 +147,17 @@ class App extends Component {
                       );
                     })}
                     <span className="align-train">
-                      <button onClick={this.delete.bind(this, index)}>
+                      <button
+                        className="del-btn"
+                        onClick={this.delete.bind(this, index)}
+                      >
                         Del
                       </button>
                       <input
                         className="train-time"
                         placeholder="Arrival 24hr Format"
                         onChange={this.setArrivalTime.bind(this, index)}
-                      />
+                      />&nbsp;
                       <input
                         className="train-time"
                         placeholder="Depart. 24hr Format"

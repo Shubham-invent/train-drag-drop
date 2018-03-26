@@ -24,26 +24,35 @@ body {
   /* margin-right: 40%; */
   margin-left: 20%;
   height: 80%;
+  box-shadow: 2px 2px 22px 2px blue;
 }
 .main-title {
   text-align: center;
+  background-color: black;
+  /* height: 10%; */
+  color: white;
+  padding: 5px;
 }
 .calc-btn {
   text-align: center;
-  margin: 1%;
+  margin: 2%;
   padding: 8px;
   background-color: green;
   color: white;
   font-size: medium;
   position: absolute;
   right: 42%;
+  border-radius: 9px;
 }
 .drag-drop-dotted-box {
   border: 1px;
   border-style: dotted;
   width: 58%;
   margin-left: 21%;
-  margin-top: -4%;
+  margin-top: -5%;
+  box-shadow: 2px 2px 31px 2px darkviolet;
+  border-radius: 8px;
+  text-align: center;
 }
 .carriage {
   position: absolute;
@@ -57,9 +66,29 @@ body {
 }
 .train-time {
   width: 29%;
+  padding: 1px;
+  border-radius: 4px;
 }
 .align-train {
   float: right;
   margin-top: -1%;
-  margin-right: -16%;
+  margin-right: -15%;
+}
+.train-track {
+  box-shadow: 2px 2px 2px black;
+}
+.del-btn {
+  color: white;
+  background-color: red;
+  margin: 1%;
+  border-radius: 14px;
+}
+
+.img-train {
+  box-shadow: 2px 2px 15px black;
+}
+.total-tracks {
+  position: absolute;
+  top: 40%;
+  right: 10%;
 }
